@@ -43,6 +43,7 @@ import androidx.constraintlayout.compose.ExperimentalMotionApi
 import androidx.constraintlayout.compose.MotionLayout
 import androidx.constraintlayout.compose.MotionScene
 import com.paulo.animations.anims.AnimatedText
+import com.paulo.animations.anims.HList
 import com.paulo.animations.anims.Profile
 
 
@@ -67,7 +68,7 @@ class MainActivity : ComponentActivity() {
             AnimationsTheme {
                 // A surface container using the 'background' color from the theme
               //  MoreExample()
-                Profile()
+                HList()
 
             }
         }
