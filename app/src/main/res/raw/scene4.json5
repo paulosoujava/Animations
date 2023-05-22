@@ -1,0 +1,200 @@
+{
+  ConstraintSets: {
+    start: {
+      content_video: {
+        width: '96%',
+        height: 80,
+        bottom: [
+          'parent',
+          'bottom',
+          16
+        ],
+        end: [
+          'parent',
+          'end'
+        ],
+        start: [
+          'parent',
+          'start'
+        ],
+        custom: {
+          background: '#625b71',
+        }
+      },
+      video_view: {
+        width: 120,
+        height: 'spread',
+        top: [
+          'content_video',
+          'top'
+        ],
+        bottom: [
+          'content_video',
+          'bottom'
+        ],
+        start: [
+          'content_video',
+          'start'
+        ],
+      },
+      content_title: {
+        width: 'spread',
+        height: 'wrap',
+        top: [
+          'content_video',
+          'top'
+        ],
+        start: [
+          'video_view',
+          'end',
+          12
+        ],
+      },
+      content_subtitle: {
+        width: 'spread',
+        height: 'wrap',
+        top: [
+          'content_title',
+          'bottom',
+          8
+        ],
+        start: [
+          'video_view',
+          'end',
+          12
+        ]
+      },
+      list_video: {
+        width: '100%',
+        height: '86%',
+        top: [
+          'parent',
+          'top',
+          4
+        ],
+        start: [
+          'parent',
+          'start',
+        ]
+      },
+      icon_picture_in_picture: {
+        width: 'wrap',
+        height: 'wrap',
+        top: [
+          'content_title',
+          'top',
+        ],
+        start: [
+          'content_title',
+          'end',
+          120
+        ],
+        custom: {
+          up: 1,
+          background: '#FFFFFF'
+        }
+      }
+    },
+    end: {
+      content_video: {
+        width: 'spread',
+        height: 380,
+        top: [
+          'parent',
+          'top'
+        ],
+        end: [
+          'parent',
+          'end'
+        ],
+        start: [
+          'parent',
+          'start'
+        ],
+        custom: {
+          background: '#08ff04',
+        }
+      },
+      video_view: {
+        width: 'spread',
+        height: 280,
+        top: [
+          'parent',
+          'top'
+        ],
+        start: [
+          'parent',
+          'start'
+        ],
+        end: [
+          'parent',
+          'end'
+        ],
+      },
+      content_title: {
+        width: 'spread',
+        height: 'wrap',
+        top: [
+          'video_view',
+          'bottom',
+          8
+        ],
+        start: [
+          'parent',
+          'start',
+          8
+        ],
+      },
+      content_subtitle: {
+        width: 'spread',
+        height: 'wrap',
+        top: [
+          'content_title',
+          'bottom',
+          8
+        ],
+        start: [
+          'parent',
+          'start',
+          12
+        ]
+      },
+      list_video: {
+        width: '100%',
+        height: 'wrap',
+        top: [
+          'content_video',
+          'bottom',
+          4
+        ],
+        start: [
+          'parent',
+          'start',
+        ]
+      },
+      icon_picture_in_picture: {
+        width: '100%',
+        height: 'wrap',
+        top: [
+          'content_title',
+          'top',
+        ],
+        start: [
+          'content_title',
+          'end',
+          80
+        ],
+        custom: {
+          up: 123123,
+          background: '#000000'
+        }
+      }
+    },
+    Transitions: {
+      default: {
+        from: 'start',
+        to: 'end',
+      }
+    }
+  }
+}
