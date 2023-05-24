@@ -2,6 +2,8 @@
 
 package com.paulo.animations.dynamicIsland.island
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
@@ -40,6 +42,7 @@ import com.paulo.animations.dynamicIsland.metaball.MetaEntity
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
 fun DynamicIsland(islandState: IslandState) {
     val config = LocalConfiguration.current

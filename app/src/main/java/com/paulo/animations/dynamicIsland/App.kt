@@ -1,5 +1,7 @@
 package com.paulo.animations.dynamicIsland
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,6 +12,7 @@ import com.paulo.animations.dynamicIsland.island.DynamicIsland
 import com.paulo.animations.dynamicIsland.island.IslandState
 
 
+@RequiresApi(Build.VERSION_CODES.S)
 @Composable
 fun App() {
     Column {

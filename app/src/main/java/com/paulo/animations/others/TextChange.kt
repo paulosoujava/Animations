@@ -102,9 +102,8 @@ fun TextChange() {
                     ) { text ->
                         Text(
                             text,
-                            modifier = Modifier.fillMaxWidth(),
                             fontWeight = FontWeight.Bold,
-                            fontSize = 50.sp,
+                            fontSize = 20.sp,
                             textAlign = TextAlign.Center,
                         )
                     }
@@ -113,7 +112,7 @@ fun TextChange() {
         Button(onClick = {
             text = if (text == original) translated else original
         }) {
-            Text("Translate text")
+            Text("+1.69%")
         }
     }
 }

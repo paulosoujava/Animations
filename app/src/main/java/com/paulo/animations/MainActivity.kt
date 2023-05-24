@@ -1,226 +1,92 @@
 package com.paulo.animations
 
-import android.os.Bundle
+
+import android.os.Build
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.FastOutLinearInEasing
-import androidx.compose.animation.core.animateInt
-import androidx.compose.animation.core.animateIntAsState
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.core.updateTransition
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.graphics.ExperimentalAnimationGraphicsApi
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.Icon
-import androidx.compose.material.Slider
-import androidx.compose.material.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.layoutId
+import com.paulo.animations.fromGit.StarbucksDemo
+import com.paulo.animations.ui.theme.AnimationsTheme
+import android.os.Bundle
+import androidx.annotation.RequiresApi
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material.BottomSheetScaffold
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ExperimentalMotionApi
-import androidx.constraintlayout.compose.MotionLayout
-import androidx.constraintlayout.compose.MotionScene
 import com.paulo.animations.anims.AnimatedText
+import com.paulo.animations.anims.CollapseScreenDemo
+import com.paulo.animations.anims.ContentView
 import com.paulo.animations.anims.HList
 import com.paulo.animations.anims.Profile
+import com.paulo.animations.anims.SHowLoad
+import com.paulo.animations.anims.ShowBox
+import com.paulo.animations.anims.ShowCardActions
+import com.paulo.animations.anims.ShowCardActionsProfile
+import com.paulo.animations.anims.ShowConstraints
+import com.paulo.animations.anims.ShowOtherAnimations
+import com.paulo.animations.anims.Test
+import com.paulo.animations.anims.Vector
+import com.paulo.animations.anims.VideoPlayingAnimation
+import com.paulo.animations.anims.youtubePlayer
+import com.paulo.animations.boxes.ShowBoxAnimate
+import com.paulo.animations.dynamicIsland.App
+import com.paulo.animations.fromGit.CardDemoComposable
+import com.paulo.animations.island2.ShowMain2
+import com.paulo.animations.other3.Five
+import com.paulo.animations.others.ExpandableFAB
+import com.paulo.animations.others.ProgressLoader
+import com.paulo.animations.others.ScaffoldLibrary
+import com.paulo.animations.others.ShowAnim
+import com.paulo.animations.others.SwipeDismiss
+import com.paulo.animations.others.Switch
+import com.paulo.animations.others.TextChange
+import com.paulo.animations.others1.ShowOthers
 
-
-import com.paulo.animations.ui.theme.AnimationsTheme
-
-enum class States {
-    EXPANDED,
-    COLLAPSED
-}
 
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMotionApi::class, ExperimentalAnimationGraphicsApi::class, ExperimentalAnimationApi::class)
+    @RequiresApi(Build.VERSION_CODES.S)
+    @OptIn(ExperimentalAnimationApi::class, ExperimentalMaterialApi::class, ExperimentalMotionApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
         setContent {
-            val context = LocalContext.current
-            val state = remember {
-                mutableStateOf(true)
-            }
-            AnimationsTheme {
-                // A surface container using the 'background' color from the theme
-              //  MoreExample()
-                HList()
-
-            }
-        }
-    }
-}
-
-@Composable
-fun MoreExample() {
-    var visible by remember {
-        mutableStateOf(true)
-    }
-    var isRound by remember {
-        mutableStateOf(false)
-    }
-    val borderRadius by animateIntAsState(
-        targetValue = if (isRound) 100 else 0,
-        animationSpec = tween(
-            durationMillis = 1000
-        )
-    )
-    val transition = updateTransition(targetState = borderRadius, label = "")
-    val sizeIcon by transition.animateInt(
-        transitionSpec = {
-            tween(
-                durationMillis = 300,
-                delayMillis = 100,
-                easing = FastOutLinearInEasing
-            )
-        },
-        label = "",
-        targetValueByState = { isRound ->
-            if (isRound > 0) 50 else 0
-        }
-    )
-    val sizeIcon2 by transition.animateInt(
-        transitionSpec = {
-            tween(
-                durationMillis = 300,
-                delayMillis = 100,
-                easing = FastOutLinearInEasing
-            )
-        },
-        label = "",
-        targetValueByState = { isRound ->
-            if (isRound > 0) 0 else 50
-        }
-    )
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
-    ) {
-
-        Row {
-            Button(onClick = {
-                isRound = !isRound
-            }) {
-                Text(text = "Circle")
-            }
-
-            Button(onClick = {
-                visible = !visible
-            }) {
-                Text(text = "Visible")
+            Column {
+                Five()
+                //ShowBoxAnimate(ctx = LocalContext.current)
+                //ShowOthers()
+                //TextChange()
+                //Switch()
+                //SwipeDismiss()
+                //ProgressLoader()
+                //ShowAnim()
+                //ExpandableFAB()
+                //ScaffoldLibrary()
+                //ShowMain2()
+                //StarbucksDemo()
+                //CardDemoComposable()
+                //App()
+                // youtubePlayer(LocalContext.current)
+                //VideoPlayingAnimation()
+                //Vector()
+                //ContentView()
+                 //ShowOtherAnimations()
+                //HList()
+                // Profile()
+                 //Test()
+                //SHowLoad()
+                //ShowConstraints()
+                // CollapseScreenDemo()
+                // ShowCardActionsProfile(context = LocalContext.current)
+                //ShowCardActions(context = LocalContext.current)
+                //ShowBox(context = LocalContext.current)
+                //AnimatedText(text = "PAULO OLIVEIRA")
+               // com.paulo.animations.Actions.App()
             }
         }
-        AnimatedText(
-            text = "Animated Text",
-            useAnimation = visible,
-        )
-        AnimatedVisibility(
-            visible = visible,
-            enter = slideInHorizontally() + fadeIn(),
-            exit = slideOutVertically() + fadeOut()
-        ) {
-            Box(
-                modifier = Modifier
-                    .size(200.dp)
-                    .clip(RoundedCornerShape(borderRadius))
-                    .background(Color.Red),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_share_24),
-                    contentDescription = null,
-                    tint = Color.White,
-                    modifier = Modifier.size(sizeIcon.dp)
-                )
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_more_vert_24),
-                    contentDescription = null,
-                    tint = Color.White,
-                    modifier = Modifier.size(sizeIcon2.dp)
-                )
-            }
-        }
-
 
     }
 }
 
-@OptIn(ExperimentalMotionApi::class)
-@Composable
-private fun motionExample1() {
-    val context = LocalContext.current
-
-    var progress by remember { mutableStateOf(0f) }
-
-    val motionScene = remember {
-        context.resources
-            .openRawResource(R.raw.scene9)
-            .readBytes()
-            .decodeToString()
-    }
-    Column {
-        MotionLayout(
-            motionScene = MotionScene(content = motionScene),
-            progress = if (progress < 0.5) 1 - progress * 2 else progress * 2 - 1,
-            //transitionName = if (progress<0.5f) "part1" else "part2",
-            modifier = Modifier
-                .fillMaxWidth()
-        ) {
-            Row(
-                modifier = Modifier
-                    .height(200.dp)
-                    .fillMaxWidth()
-                    .layoutId("row_container")
-            ) { }
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .clip(
-                        RoundedCornerShape(
-                            topEnd = 25.dp,
-                            bottomEnd = 25.dp,
-                            topStart = 25.dp,
-                            bottomStart = 25.dp
-                        )
-                    )
-                    .background(Color.Red)
-                    .layoutId("circle")
-            )
-        }
-
-        Spacer(Modifier.height(32.dp))
-
-        Slider(
-            value = progress,
-            onValueChange = {
-                progress = it
-            }
-        )
-    }
-
-}

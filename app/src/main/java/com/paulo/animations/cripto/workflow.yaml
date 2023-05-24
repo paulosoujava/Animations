@@ -1,0 +1,17 @@
+# flow.yaml
+
+appId: com.paulo.animations
+---
+- tapOn:
+    point: "50%,7%"
+- inputText: "teste_email_wrong1@gmail.com"
+- tapOn: "Enviar"
+- tapOn:
+      point: "50%,7%"
+- inputText: "teste_email_wrong2@gmail.com"
+- tapOn: "Enviar"
+- tapOn:
+      point: "50%,7%"
+- inputText: "teste_email_wrong3@gmail.com"
+- tapOn: "Enviar"
+- assertVisible: "BLOQUEADO"
