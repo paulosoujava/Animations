@@ -26,6 +26,7 @@ import androidx.compose.material.Text
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -33,20 +34,36 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontSynthesis
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 
-
-const val original = "Bye"
-const val translated = "Tschüs"
+const val original = "Dj Alloc"
+const val translated = "AlloC"
 
 @Composable
-fun TextChange() {
+fun TextChange(
+    fontSize: TextUnit = 20.sp
+) {
     var text by remember {
         mutableStateOf(original)
+    }
+    val scope = CoroutineScope(Dispatchers.IO)
+
+    SideEffect {
+        scope.launch {
+            delay(300)
+           // text = if (text == original) translated else original
+        }
     }
 
     val time = 1000
@@ -102,17 +119,18 @@ fun TextChange() {
                     ) { text ->
                         Text(
                             text,
+                            color = Color.White,
                             fontWeight = FontWeight.Bold,
-                            fontSize = 20.sp,
+                            fontSize = fontSize,
                             textAlign = TextAlign.Center,
                         )
                     }
                 }) {}
         }
-        Button(onClick = {
+        /*Button(onClick = {
             text = if (text == original) translated else original
         }) {
             Text("+1.69%")
-        }
+        }*/
     }
 }
